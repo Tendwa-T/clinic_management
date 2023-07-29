@@ -1,0 +1,11 @@
+@font-face{
+    font-family: 'Roboto';
+    font-weight: normal;
+    font-style: normal;
+    src: url(~`/fonts/roboto-regular.woff2`) format('woff2');
+
+}
+
+.my-element {
+    font-family: var(--font-roboto)
+}
