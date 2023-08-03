@@ -14,9 +14,10 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ['Inter var', 'Roboto', 'system-ui', 'sans-serif'],
-      roboto: ['Roboto', 'system-ui', 'sans-serif'],
+      roboto: ['Roboto'],
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }

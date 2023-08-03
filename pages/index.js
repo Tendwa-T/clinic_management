@@ -3,15 +3,13 @@ import { useState } from 'react'
 import { useRouter } from "next/navigation";
 
 
-const inter = Inter({ subsets: ['latin'] })
-
 
 export default function Home() {
   const [isButtonActive, setIsButtonActive] = useState(false)
   const router = useRouter();
   const handleNav = () => {
     setIsButtonActive(!isButtonActive)
-    router.push('/Login')
+    router.push('/login')
   }
 
   return (

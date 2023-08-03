@@ -1,12 +1,12 @@
 import Navbar from "./navbar/navbar";
-import Footer from "./footer/footer";
 
-export default function Layout({ children }) {
+const Layout = ({ children }) => {
     return (
-        <div className="flex flex-col min-h-screen">
-            <Navbar />
-            <main className="flex-grow">{children}</main>
-            <Footer />
+        <div className="bg-gray-100">
+        <Navbar />
+        {children}
         </div>
     );
-};
+}
+
+export default Layout;
