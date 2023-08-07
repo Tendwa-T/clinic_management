@@ -5,6 +5,9 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import UserContext from "@/context/UserContext";
 import { useRouter } from "next/router";
+import PatientSection from "./patientSection";
+
+
 
 
 export default function Patients() {
@@ -12,7 +15,6 @@ export default function Patients() {
     const [patients, setPatients] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
-    const [specificPatient, setSpecificPatient] = useState([]);
     const router = useRouter();
 
 
@@ -46,15 +48,20 @@ export default function Patients() {
                     </p>
                 </div>
             </div>
+
+            <PatientSection />
+
             <div id="patient-list" className="h-screen mt-5 w-screen">
                 <div>
                     <div className="mt-15 mb-5">
-                        <h1 className="text-2xl font-roboto text-center">Patients List</h1>
+                        <h1 className="text-2xl font-roboto text-center">Patients Overview</h1>
                     </div>
                     {loading ? <div className='text-center'>Loading...</div> : error ? <div className='text-center'>{error}</div> :
-                        <div className="flex flex-wrap space-y-3">
+                        <div className="flex flex-wrap justify-center mx-5 ">
                             {patients.map((patient) => (
-                                <button key={patient._id} onClick={getPatient} className="font-roboto text-lg border-2 tracking-wide border-gray-300 w-70 p-4 bg-white rounded-lg shadow-sm text-center space-x-5 ml-5">
+                                <button key={patient.idNo} onClick={()=>{
+                                    router.push(`/patients/${patient.idNo}`)
+                                }} className="font-roboto text-lg border-2 tracking-wide border-gray-300 w-[250px] p-4 bg-white rounded-lg shadow-sm text-center space-x-5 mx-5 mb-5 hover:scale-110 hover:bg-sky-400 hover:border-sky-600 transition ease-in-out duration-300">
                                     <div className="mb-5">{patient.name}, {patient.gender}</div>
                                     <div>Allergies:{patient.allergies}</div>
                                 </button>
@@ -67,37 +74,3 @@ export default function Patients() {
     )
 }
 
-function PatientList() {
-    const { user } = useContext(UserContext);
-    const [patients, setPatients] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState('');
-    const router = useRouter();
-
-    useEffect(() => {
-        fetchPatients();
-    }, [router, user]);
-
-    const fetchPatients = async () => {
-        setLoading(true);
-        try {
-            const res = await fetch('https://clinic-backend-three.vercel.app/api/patients/all', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            });
-            const data = await res.json();
-            setPatients(data);
-            setLoading(false);
-            console.log(data);
-        } catch (error) {
-            setError(error.message);
-            setLoading(false);
-        }
-    };
-
-    return (
-        console.log('unavailable')
-    )
-}

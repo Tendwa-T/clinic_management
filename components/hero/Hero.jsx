@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import herobg from '../../assets/hero.jpg'
 const Hero = () => {
     return (
         <div className="w-full h-[90vh] sm:-[90vh] relative" id="home">
@@ -13,10 +12,10 @@ const Hero = () => {
                 <p className=' text-3xl font-roboto sm:text-5xl font-bold mb-[25px]'>
                     Welcome to Lukenya Med
                 </p>
-                <p className='text-md font-roboto sm:text-lg mb-[15px]'>
+                <p className='text-lg font-roboto sm:text-lg mb-[15px]'>
                     Glad to have you back Daktari
                 </p>
-                <p className='text-sm text-center font-roboto'>
+                <p className='text-md text-center font-roboto'>
                     Here you can manage your patients, appointments and prescriptions
                 </p>
             </div>

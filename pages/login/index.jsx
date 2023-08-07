@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState, useContext, useEffect } from "react";
 import UserContext from "@/context/UserContext";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 
 export default function Login() {
@@ -36,8 +37,7 @@ export default function Login() {
     });
 
     const data = await response.json();
-    setIdNo("");
-    setPassword("")
+
 
     if (data.userToken) {
       setUserToken(data.userToken);
@@ -49,13 +49,15 @@ export default function Login() {
 
     if (data == 'Id Number does not exist') {
       setIsIdErr(true);
+      toast.error("Id Number does not exist");
     } else {
       setIsIdErr(false);
     }
     if (data == 'Incorrect password'){
       setIsPassErr(true);
+      toast.error("Incorrect password");
     } else{
-      setIsPassErr(false)
+      setIsPassErr(false);
     }
 
 

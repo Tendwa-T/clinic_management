@@ -5,13 +5,14 @@ import UserContext from "@/context/UserContext";
 import Hero from "@/components/hero/Hero";
 
 
+
 export default function Dashboard() {
     const { user } = useContext(UserContext);
 
     return (
         <div>
-            <div className="flex w-full justify-center bg-white h-screen">
-            <Hero />
+            <div className="flex w-full justify-center bg-white ">
+                <Hero />
             </div>
         </div>
     )
