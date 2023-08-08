@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 import { PencilIcon } from '@heroicons/react/20/solid'
+import { toast } from 'react-toastify'
 
 const PatientDetails = () => {
     const [singlepatient, setSinglePatient] = useState([])
@@ -76,6 +77,12 @@ const PatientDetails = () => {
             },
             body: JSON.stringify(editPatient)
         })
+
+        const data = await res.json()
+        if (typeof data === 'object' && data!== null) {
+            toast.success('Patient details updated')
+            setTimeout(()=>{setEdit(false)}, 3000)
+        }
 
         console.log(res.data)
     }
@@ -210,7 +217,7 @@ const PatientDetails = () => {
 
                     :
 
-                    <div className='font-roboto text-lg border-2 tracking-wide border-gray-300 w-screen h-[400px] py-4 px-2 bg-gray-300 rounded-lg shadow-sm space-x-5 ml-5'>
+                    <div className='font-roboto text-lg border-2 tracking-wide border-gray-300 w-screen h-[500px] py-4 px-2 bg-gray-300 rounded-lg shadow-sm space-x-5 ml-5 space-y-2'>
                         <div className='flex justify-center space-x-6'><h2 className='text-3xl text-center font-roboto underline'>{singlepatient.name}</h2> <button onClick={() => { setEdit(!edit) }}><PencilIcon className='h-6 w-6 ' /></button></div>
                         <div>Gender: <p className='bg-white pl-4 border-3 border-blue-400 rounded-md'>{singlepatient.gender} </p></div>
                         <div><div>Dob:</div>  <p className='bg-white pl-4 border-blue-400 rounded-md'>{singlepatient.dob}</p></div>

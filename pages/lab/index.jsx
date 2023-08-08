@@ -7,6 +7,7 @@ import UserContext from "@/context/UserContext";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import { CheckIcon, ClockIcon } from "@heroicons/react/20/solid";
+import LabSection from "./labSection";
 
 export default function Lab() {
     const router = useRouter()
@@ -52,6 +53,8 @@ export default function Lab() {
                 </p>
             </div>
 
+            <LabSection />
+
             <div id="Lab-list" className="h-screen mt-5 w-screen">
                 <div>
                     <div className="mt-15 mb-5">
@@ -62,7 +65,7 @@ export default function Lab() {
                             {labTests.map((test) => (
                                 <button key={test.idNo} onClick={()=>{
                                     router.push(`/lab/${test.idNo}`)
-                                }} className="font-roboto text-lg border-2 tracking-wide border-gray-300 w-[450px] p-4 bg-white rounded-lg shadow-sm text-center space-x-5 mx-5 mb-5 hover:scale-110 hover:bg-sky-400 hover:border-sky-600 transition ease-in-out duration-300">
+                                }} className="font-roboto text-lg border-2 tracking-wide border-gray-300 w-[450px] p-4 bg-white rounded-lg shadow-2xl text-center space-x-5 mx-5 mb-5 hover:scale-110 hover:bg-sky-400 hover:border-sky-600 transition ease-in-out duration-300">
                                     <div className="mb-5">{test.name} </div>
                                     <div className="mb-5">Test: {test.test}</div>
                                     {test.complete === true ? <div className="mb-5"><div className="justify-center flex mb-5">Status: <CheckIcon className="h-6 w-6 text-green-500 " /></div><div>Result: {test.result}</div></div> : <div className="flex justify-center mb-5"><ClockIcon className="h-6 w-6 text-blue-600"/></div>}
