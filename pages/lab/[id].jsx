@@ -206,12 +206,12 @@ export default function LabDetails(){
 
                     :
 
-                    <div className='font-roboto text-lg border-2 tracking-wide border-gray-300 w-screen h-[400px] py-4 px-2 bg-gray-300 rounded-lg shadow-sm space-x-5 ml-5'>
+                    <div className='font-roboto text-lg border-2 tracking-wide border-gray-300 w-screen h-[450px] py-4 px-2 bg-gray-300 rounded-lg shadow-sm space-x-5 ml-5'>
                         <div className='flex justify-center space-x-6'><h2 className='text-3xl text-center font-roboto underline'>{singleLab.name}</h2> <button onClick={() => { setEdit(!edit) }}><PencilIcon className='h-6 w-6 ' /></button></div>
-                        <div>Gender: <p className='bg-white pl-4 border-3 border-blue-400 rounded-md'>{singleLab.idNo} </p></div>
-                        <div><div>Dob:</div>  <p className='bg-white pl-4 border-blue-400 rounded-md'>{singleLab.labNo}</p></div>
-                        <div>ID Number:  <p className='bg-white pl-4 border-3 border-blue-400 rounded-md'>{singleLab.test}</p></div>
-                        <div>Blood Type: <p className='bg-white pl-4 border-3 border-blue-400 rounded-md'>{singleLab.result}</p></div>
+                        <div>ID Number: <p className='bg-white pl-4 border-3 border-blue-400 rounded-md'>{singleLab.idNo} </p></div>
+                        <div><div>Lab Number:</div>  <p className='bg-white pl-4 border-blue-400 rounded-md'>{singleLab.labNo}</p></div>
+                        <div>Test Name:  <p className='bg-white pl-4 border-3 border-blue-400 rounded-md'>{singleLab.test}</p></div>
+                        <div>Result: <p className='bg-white pl-4 border-3 border-blue-400 rounded-md'>{singleLab.result}</p></div>
                         <div>Notes: <p className='bg-white pl-4 border-3 border-blue-400 rounded-md'>{singleLab.notes}</p></div>
                         <div>Complete: <p className='bg-white pl-4 border-3 border-blue-400 rounded-md'>{singleLab.complete ? 'Yes' : 'No'}</p></div>
                     </div>}

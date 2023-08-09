@@ -90,7 +90,8 @@ export default function Request() {
         }else if (typeof data === 'object' && data !== null){
             setSuccess(true);
             toast.success("Lab request successful");
-            /* router.push("/patients"); */    
+            setUniqueId("");
+            router.push("/lab");
 
         }
         console.log(data);
@@ -177,7 +178,7 @@ export default function Request() {
                         cancel
                     </button>
 
-                    <button className="border-2 bg-blue-800 w-40 h-14 rounded-lg font-roboto text-xl hover:scale-110 hover:bg-green-500 transition ease-linear duration-300" onClick={() => { toast.success("Submit button clicked") }} type="submit">
+                    <button className="border-2 bg-blue-800 w-40 h-14 rounded-lg font-roboto text-xl hover:scale-110 hover:bg-green-500 transition ease-linear duration-300" type="submit">
                         submit
                     </button>
                 </div>

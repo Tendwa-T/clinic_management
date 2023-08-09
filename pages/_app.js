@@ -1,10 +1,9 @@
 import '@/styles/globals.css'
 import { UserProvider } from '@/context/UserContext';
-import Layout from '@/components/Layout';
 import { useRouter } from 'next/router';
 import 'react-toastify/dist/ReactToastify.css'
 import { ToastContainer } from 'react-toastify';
-
+import Layout from '@/components/layout'
 
 export default function App({
   Component,
